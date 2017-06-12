@@ -6,9 +6,8 @@
 	<label>Amount: </label>
 	<input #newTransaction (keyup.enter)="addTransaction(newTransaction.value)" placeholder="amount">
 </div>
-<h2>{{newTransaction.value}}</h2>
 <ul class="transactions">
-	<li *ngFor="let transaction of appUser.transactions" (click)="onSelect(transaction)">
+	<li *ngFor="let transaction of appUser.budgets[0].transactions" (click)="onSelect(transaction)">
 		{{transaction.amount}} €
 	</li>
 </ul>

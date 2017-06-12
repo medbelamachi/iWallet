@@ -1,7 +1,7 @@
-import { Transaction } from './transaction';
+import { Budget } from './budget';
 export class User {
     public id: Number;
     public userName: String;
-    public transactions: Transaction[] = []
+    public budgets: Budget[] = []
     constructor() { };
 }

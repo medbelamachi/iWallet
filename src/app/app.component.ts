@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from './shared/model/user';
+import { Budget } from './shared/model/budget';
 import { Transaction } from './shared/model/transaction';
 
 @Component({
@@ -12,11 +13,11 @@ export class AppComponent {
   appUser: User = {
     id: 1,
     userName: 'Med',
-    transactions: [new Transaction(new Date(), 100)]
+    budgets: [new Budget(new Date(), "First Budget")]
   };
 
   addTransaction(amount: Number) {
-    this.appUser.transactions.push(new Transaction(new Date(), amount));
+    this.appUser.budgets[0].transactions.push(new Transaction(new Date(), amount));
   }
 
   onSelect(transaction: Transaction) {
