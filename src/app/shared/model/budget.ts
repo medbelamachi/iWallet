@@ -3,10 +3,12 @@ export class Budget {
     id: Number;
     creationDate: Date;
     label: string;
+    maxAmount: Number
     public transactions: Transaction[] = []
 
-    constructor(creationDate: Date, label: string) {
+    constructor(label: string, maxAmount: Number) {
+        this.creationDate = new Date();
         this.label = label;
-        this.creationDate = creationDate;
+        this.maxAmount = maxAmount;
     }
 }

@@ -13,14 +13,20 @@ export class AppComponent {
   appUser: User = {
     id: 1,
     userName: 'Med',
-    budgets: [new Budget(new Date(), "First Budget")]
+    budgets: []
   };
+  currentBudget: Budget;
 
-  addTransaction(amount: Number) {
-    this.appUser.budgets[0].transactions.push(new Transaction(new Date(), amount));
+  addNewBudget(label: string, maxAmount: Number) {
+    this.appUser.budgets.push(new Budget(label, maxAmount));
   }
 
-  onSelect(transaction: Transaction) {
-    console.log(transaction)
+  addTransaction(amount: Number) {
+    this.currentBudget.transactions.push(new Transaction(new Date(), amount));
+  }
+
+  onSelectBudget(budget: Budget) {
+    this.currentBudget = budget;
+    console.log(budget)
   }
 }

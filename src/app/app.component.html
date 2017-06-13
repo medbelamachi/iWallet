@@ -1,13 +1,25 @@
-<h1>
-	{{title}}</h1>
+<h1> {{title}}</h1>
 <h2>{{appUser.userName}} details!</h2>
-
+<h3>New Budget :</h3>
+<div>
+	<label>label: </label>
+	<input #budgetLabel placeholder="budgetLabel">
+	<label> Max Amount: </label>
+	<input #budgetMaxAmount placeholder="budgetMaxAmount">
+	<button (click)="addNewBudget(budgetLabel.value,budgetMaxAmount.value)">Add Budget</button>
+</div>
+<ul >
+	<li *ngFor="let budget of appUser.budgets" (click)="onSelectBudget(budget)">
+		{{budget.label}} : {{budget.maxAmount}} €
+	</li>
+</ul>
+<h3>New transaction in : <span [(ngModel)]="currentBudget.label"></span></h3>
 <div>
 	<label>Amount: </label>
 	<input #newTransaction (keyup.enter)="addTransaction(newTransaction.value)" placeholder="amount">
 </div>
 <ul class="transactions">
-	<li *ngFor="let transaction of appUser.budgets[0].transactions" (click)="onSelect(transaction)">
+	<li *ngFor="let transaction of currentBudget.transactions" (click)="onSelect(transaction)">
 		{{transaction.amount}} €
 	</li>
 </ul>
